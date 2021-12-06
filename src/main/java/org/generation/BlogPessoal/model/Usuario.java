@@ -34,14 +34,16 @@ public class Usuario {
 	@NotNull(message = "O atributo Usuário é Obrigatório!")
 	@Email(message = "O atributo Usuário deve ser um email válido!")
 	private String usuario;
-
-	@NotNull
-	private String foto;
-
+	
 	@NotNull
 	@Size(min = 5, max = 100)
 	private String senha;
+	
+	@NotNull
+	private String foto;
 
+	private String tipo;
+	
 	@OneToMany(mappedBy = "criador", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties({ "criador" })
 	private List<Postagem> minhasPostagens = new ArrayList<>();
@@ -70,6 +72,14 @@ public class Usuario {
 		this.usuario = usuario;
 	}
 
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	
 	public String getFoto() {
 		return foto;
 	}
@@ -78,20 +88,20 @@ public class Usuario {
 		this.foto = foto;
 	}
 
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
 	public List<Postagem> getMinhasPostagens() {
 		return minhasPostagens;
 	}
 
 	public void setMinhasPostagens(List<Postagem> minhasPostagens) {
 		this.minhasPostagens = minhasPostagens;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 }
