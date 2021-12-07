@@ -1,4 +1,4 @@
-package org.generation.BlogPessoal.Controller;
+	package org.generation.BlogPessoal.Controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -29,6 +29,7 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioRepository repository;
 	
+	@Autowired
 	private UsuarioService service;
 
 	@GetMapping("/all")
